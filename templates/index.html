@@ -1,5 +1,4 @@
 {% extends "prelogin-layout.html" %}
-{% from 'form_helper' import as displayField  %}
 
 
 
@@ -8,15 +7,41 @@
 {% block content %}
 
 <form action="{{ url_for('index') }}" , method="POST">
-    {{ display_Field(form.username, 'Username', autocomplete="off", autofocus=true) }}
+    <div >
+        {{ form.username(class_='form-control', placeholder="Username", **kwargs) }}
+        <!-- Error messages -->
+        <ul>
+            {% for error in form.username.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div >
+        {{ form.password(class_='form-control', placeholder="passward", **kwargs) }}
+        <!-- Error messages -->
+        <ul>
+            {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div >
+        {{ form.confirm_pswd(class_='form-control', placeholder="retype passward", **kwargs) }}
+        <!-- Error messages -->
+        <ul>
+            {% for error in form.confirm_pswd.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- {{ display_Field(form.username, 'Username', autocomplete="off", autofocus=true) }}
     {{ display_Field(form.password, 'Password') }}
-    {{ display_Field(form.confirm_pswd, 'Retype Password') }}
+    {{ display_Field(form.confirm_pswd, 'Retype Password') }} -->
     <div>
-        {{ form.submit_button }}
-
+          <input type="submit" value="create"  >
     </div>
 
-    <!-- {{from.csrf_token}} -->
+    {{from.csrf_token}}
 </form>
 
 {% endblock %}
