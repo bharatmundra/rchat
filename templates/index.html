@@ -1,10 +1,23 @@
 {% extends "prelogin-layout.html" %}
+{% from 'form_helper' import as displayField  %}
 
 
 
-{% block title %} Registration {% endblock %}
+{% block title %} Registration {% endblock title %}
+
 {% block content %}
 
-<h1>Get Started</h1>
+<form action="{{ url_for('index') }}" , method="POST">
+    {{ display_Field(form.username, 'Username', autocomplete="off", autofocus=true) }}
+    {{ display_Field(form.password, 'Password') }}
+    {{ display_Field(form.confirm_pswd, 'Retype Password') }}
+    <div>
+        {{ form.submit_button }}
+
+    </div>
+
+    <!-- {{from.csrf_token}} -->
+</form>
 
 {% endblock %}
+
