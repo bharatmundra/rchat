@@ -8,7 +8,7 @@
 
 <form action="{{ url_for('index') }}" , method="POST">
     <div >
-        {{ form.username(class_='form-control', placeholder="Username", **kwargs) }}
+        {{ form.username(class_='form-control', placeholder="Username") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.username.errors %}
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div >
-        {{ form.password(class_='form-control', placeholder="passward", **kwargs) }}
+        {{ form.password(class_='form-control', placeholder="passward") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.password.errors %}
@@ -26,7 +26,7 @@
         </ul>
     </div>
     <div >
-        {{ form.confirm_pswd(class_='form-control', placeholder="retype passward", **kwargs) }}
+        {{ form.confirm_pswd(class_='form-control', placeholder="retype passward") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.confirm_pswd.errors %}
