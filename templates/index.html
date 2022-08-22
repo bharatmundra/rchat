@@ -1,4 +1,3 @@
-
 {% extends "prelogin-layout.html" %}
 
 
@@ -7,8 +6,8 @@
 {% block content %}
 
 <form action="{{ url_for('index') }}" , method="POST">
-    <div >
-        {{ form.username(class_='form-control', placeholder="Username", **kwargs) }}
+    <div>
+        {{ form.username(class_='form-control', placeholder="Username") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.username.errors %}
@@ -16,8 +15,8 @@
             {% endfor %}
         </ul>
     </div>
-    <div >
-        {{ form.password(class_='form-control', placeholder="passward", **kwargs) }}
+    <div>
+        {{ form.password(class_='form-control', placeholder="passward") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.password.errors %}
@@ -25,8 +24,8 @@
             {% endfor %}
         </ul>
     </div>
-    <div >
-        {{ form.confirm_pswd(class_='form-control', placeholder="retype passward", **kwargs) }}
+    <div>
+        {{ form.confirm_pswd(class_='form-control', placeholder="retype passward") }}
         <!-- Error messages -->
         <ul>
             {% for error in form.confirm_pswd.errors %}
@@ -34,15 +33,12 @@
             {% endfor %}
         </ul>
     </div>
-    <!-- {{ display_Field(form.username, 'Username', autocomplete="off", autofocus=true) }}
-    {{ display_Field(form.password, 'Password') }}
-    {{ display_Field(form.confirm_pswd, 'Retype Password') }} -->
+
     <div>
-          <input type="submit" value="create"  >
+        <input type="submit" value="create">
     </div>
 
-    {{from.csrf_token}}
+
 </form>
 
 {% endblock %}
-
