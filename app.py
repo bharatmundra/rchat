@@ -1,8 +1,9 @@
 from flask import Flask,render_template,request
 
+from flask_sqlalchemy import SQLAlchemy
 
 from wtform_field import *
-from models import *
+import models.py
 
 
 app=Flask(__name__)
